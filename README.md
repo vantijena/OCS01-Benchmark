@@ -1,56 +1,56 @@
-**ocs01-test**
+This report documents in-depth testing performed on the Octra public testnet, focusing on the OCS01 benchmark contract under both regular and encrypted sequential execution modes. The objective is to validate execution stability, establish baseline performance metrics, and provide verifiable artifacts suitable for QA review and ecosystem evaluation.
 
-rust cli for testing ocs01 smart contract
+Contributor Information
 
-**what it does**
+Octra address: octGTW2A7kvKDharykCzce8fJSktvXavrBhMZKfqtLPJQQ3
 
--   tests all ocs01 contract methods
--   interactive menu for easy navigation
--   shows results instantly for view methods
--   handles tx signing for call methods
+Testing Scope
 
-**works on**
+Network: Octra Public Testnet
 
--   linux
--   macos
--   windows
+Contract: OCS01
 
-**install rust (if not installed)**
+Execution modes tested:
 
-```bash
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-source $HOME/.cargo/env
-```
+Regular (sequential)
 
-**build from source**
+Encrypted (sequential)
 
-```bash
-git clone https://github.com/octra-labs/ocs01-test.git
-cd ocs01-test
-cargo build --release
-```
+Client/contract modifications: None
 
-**setup**
+Methodology
 
-```bash
-# copy contract interface
-cp EI/exec_interface.json .
-```
+Benchmarks executed using the official OCS01 tooling.
 
-**required files in same directory**
+Transactions were submitted sequentially to observe end-to-end execution behavior.
 
--   wallet.json - create with your credentials
--   exec_interface.json - copy from EI/ folder
+Metrics collected per run:
 
-**run**
+Total transactions processed
 
-you must copy the release binary to your cli folder and also copy the EI file (execution interface file) to the same location 
+Total execution duration
 
-the release binary is located in this folder after successful build. 
-```bash
-./target/release/ocs01-test
-```
+SHA-256 checksum of raw log output for integrity verification
 
-*for this task the ei file contains the interface for contract at address octBUHw585BrAMPMLQvGuWx4vqEsybYH9N7a3WNj1WBwrDn, do not modify it*
+Benchmark Results
+OCS01 Regular Benchmark
 
-after running, follow the menu to interact with the contract
+Total transactions: 110
+
+Total duration: 952 seconds
+
+Derived TPS: 0.1155
+
+SHA-256 (log): e04220307b27845334d128a24072547ca87ea4d9735b6258cd60cffca90a6c42
+
+OCS01 Encrypted Sequential Benchmark
+
+Start time: 2025-11-24T11:22:51Z
+
+Total transactions: 20
+
+Total duration: 1303 seconds
+
+Derived TPS: 0.0153
+
+SHA-256 (log): 279ffa3e96a87f0686e5daef8a8dba6ebed28c257546b128880b1fe8c6810da9
